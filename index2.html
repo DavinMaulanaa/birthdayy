@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tombol Glow Menarik</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: #1a1a2e;
+            font-family: 'Arial', sans-serif;
+            overflow: hidden;
+        }
+
+        .text-container {
+            margin-bottom: 30px;
+        }
+
+        .fancy-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #fff;
+            text-shadow: 0 0 10px #00fff2, 0 0 20px #00fff2, 0 0 30px #00fff2;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .glow-button {
+            padding: 15px 30px;
+            font-size: 24px;
+            color: #fff;
+            background-color: #16213e;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .glow-button::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0) 70%);
+            transform: scale(0);
+            transition: transform 0.5s;
+        }
+
+        .glow-button:hover::before {
+            transform: scale(1);
+        }
+
+        .glow-button:hover {
+            box-shadow: 0 0 20px #00fff2;
+        }
+    </style>
+</head>
+<body>
+    <div class="text-container">
+        <h1 class="fancy-text">CLICK DIBAWAH SINI</h1>
+    </div>
+    <a href="index.html">
+    <button href="index.html" class="glow-button">DISINI :D</button>
+    </a>
+    <script>
+        document.querySelector('.glow-button').addEventListener('click', function() {
+            alert('Ingin menuju halaman selanjutnya?');
+        });
+    </script>
+</body>
+</html>
